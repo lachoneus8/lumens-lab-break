@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var item_hold_pos = $ItemHoldPos
 
 var item_stack: Array[Node2D] = []
+var hasFlashlight: bool = false
 
 func _physics_process(delta: float) -> void:
 	# Get input direction
@@ -29,6 +30,18 @@ func _physics_process(delta: float) -> void:
 	
 	# Move the character
 	move_and_slide()
+	
+	if velocity.length() > 0.0:
+		$AnimatedSprite2D.visible = true
+		$PlaceholderBlob.visible = false
+		if hasFlashlight:
+			$AnimatedSprite2D.play("play_lit", 2.0)
+		else:
+			$AnimatedSprite2D.play("play_dark", 2.0)
+	else:
+		$AnimatedSprite2D.visible = false
+		$PlaceholderBlob.visible = true
+		
 	
 	if Input.is_action_just_pressed("Pickup"):
 		pickup_item()
@@ -74,6 +87,7 @@ func pickup_item():
 		
 		if nearest_item.name == "LightSource":
 			$PlaceholderBlob.texture = lightOnTexture
+			hasFlashlight = true
 
 func drop_item():
 	if item_stack.size() == 0:
@@ -94,3 +108,4 @@ func drop_item():
 	
 	if item_to_drop.name == "LightSource":
 		$PlaceholderBlob.texture = lightOffTexture
+		hasFlashlight = false
