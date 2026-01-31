@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dqcisy8j033rp"]
 
-[ext_resource type="Script" uid="uid://wabbfnfgxcb" path="res://Scripts/ItemData.gd" id="1_hvrbi"]
-[ext_resource type="Texture2D" uid="uid://dt8l323h28klv" path="res://Textures/LightSource.png" id="2_3e64k"]
+[ext_resource type="Script" uid="uid://wabbfnfgxcb" path="res://Scripts/ItemData.gd" id="1_rflfy"]
+[ext_resource type="Texture2D" uid="uid://54aay8u00gft" path="res://Textures/Asset_Light.png" id="2_5x46v"]
 
 [resource]
-script = ExtResource("1_hvrbi")
+script = ExtResource("1_rflfy")
 item_name = "Light"
-texture = ExtResource("2_3e64k")
+texture = ExtResource("2_5x46v")
 metadata/_custom_type_script = "uid://wabbfnfgxcb"

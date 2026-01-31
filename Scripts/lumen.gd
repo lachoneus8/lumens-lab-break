@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var speed: float = 300.0
 @export var pickupRange: float = 40
+@export var lightOnTexture: Texture
+@export var lightOffTexture: Texture
 @onready var item_hold_pos = $ItemHoldPos
 
 var item_stack: Array[Node2D] = []
@@ -69,6 +71,9 @@ func pickup_item():
 		
 		# Add to stack (FILO - First In Last Out)
 		item_stack.push_back(nearest_item)
+		
+		if nearest_item.name == "LightSource":
+			$PlaceholderBlob.texture = lightOnTexture
 
 func drop_item():
 	if item_stack.size() == 0:
@@ -83,6 +88,9 @@ func drop_item():
 	item_hold_pos.remove_child(item_to_drop)
 	root.add_child(item_to_drop)
 	# Set the item's global position to the player's position
-	item_to_drop.global_position = global_position + Vector2(30, 30)
+	item_to_drop.global_position = global_position + Vector2(-30, -30)
 
 	item_to_drop.add_to_group("items")
+	
+	if item_to_drop.name == "LightSource":
+		$PlaceholderBlob.texture = lightOffTexture

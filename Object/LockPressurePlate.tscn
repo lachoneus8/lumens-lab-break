@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://ca5pnuuntlb86"]
 
 [ext_resource type="Script" uid="uid://blt5gy3mmv2nj" path="res://Scripts/Lock.gd" id="1_3lscn"]
-[ext_resource type="Texture2D" uid="uid://csd1vfcvp6krt" path="res://Textures/PressurePlate.png" id="2_3y67d"]
+[ext_resource type="Texture2D" uid="uid://dt21lbp0f0vhx" path="res://Textures/Asset_PressurePlate_Purple_Off.png" id="2_3y67d"]
 [ext_resource type="Script" uid="uid://dm0o1p8bgmrsb" path="res://Scripts/PressurePlate.gd" id="3_ltwih"]
+[ext_resource type="Texture2D" uid="uid://baypukgtl7ek2" path="res://Textures/Asset_PressurePlate_Purple_On.png" id="4_ltwih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dfdb"]
 size = Vector2(58, 59)
@@ -11,11 +12,14 @@ size = Vector2(58, 59)
 script = ExtResource("1_3lscn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1884908079]
+scale = Vector2(1.7600006, 1.759998)
 texture = ExtResource("2_3y67d")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1057788547 node_paths=PackedStringArray("lock")]
 script = ExtResource("3_ltwih")
 lock = NodePath("..")
+textureOn = ExtResource("4_ltwih")
+textureOff = ExtResource("2_3y67d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=872199386]
 position = Vector2(0, -0.5)
