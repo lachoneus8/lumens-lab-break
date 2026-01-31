@@ -1,24 +1,36 @@
 [gd_scene format=3 uid="uid://c2h2x72qgmfi1"]
 
-[ext_resource type="Script" uid="uid://cpmhbdiv3au3y" path="res://Scripts/lumen.gd" id="1_8ffim"]
+[ext_resource type="Script" uid="uid://cpmhbdiv3au3y" path="res://Scripts/Lumen.gd" id="1_8ffim"]
 [ext_resource type="Texture2D" uid="uid://cuxs0g3qhn6o4" path="res://Textures/placeholder_background.png" id="1_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://c04la2vfaps22" path="res://Textures/PlaceholderBlob.png" id="2_xfk5q"]
+[ext_resource type="PackedScene" uid="uid://cdo8i2gwt3um2" path="res://Items/LightSource.tscn" id="3_evi0p"]
+[ext_resource type="Script" uid="uid://bxjfb7imr3lbi" path="res://Scripts/Fog.gd" id="4_7p6j4"]
+[ext_resource type="Resource" uid="uid://dqcisy8j033rp" path="res://Data/LightSource.tres" id="4_lsmp6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7p6j4"]
 radius = 28.460499
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6444e"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7p6j4"]
+blend_mode = 3
+
 [node name="Node2D" type="Node2D" unique_id=193169328]
+script = ExtResource("4_7p6j4")
 
 [node name="PlaceholderBackground" type="Sprite2D" parent="." unique_id=647695926]
 position = Vector2(559, 427)
 texture = ExtResource("1_xfk5q")
 
+[node name="LightSource" parent="." unique_id=284507103 groups=["items", "lights"] instance=ExtResource("3_evi0p")]
+position = Vector2(595, 352)
+itemData = ExtResource("4_lsmp6")
+
 [node name="Lumen" type="CharacterBody2D" parent="." unique_id=1709684840]
-position = Vector2(554, 360)
+position = Vector2(550, 354)
 script = ExtResource("1_8ffim")
 speed = 12000.0
+pickupRange = 60.0
 
 [node name="PlaceholderBlob" type="Sprite2D" parent="Lumen" unique_id=1648174148]
 scale = Vector2(1.125, 1.125)
@@ -26,6 +38,9 @@ texture = ExtResource("2_xfk5q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lumen" unique_id=148979818]
 shape = SubResource("CircleShape2D_7p6j4")
+
+[node name="ItemHoldPos" type="Node2D" parent="Lumen" unique_id=462890455]
+position = Vector2(12, 17)
 
 [node name="Environment" type="Node" parent="." unique_id=148573709]
 
@@ -84,3 +99,7 @@ position = Vector2(136, 206)
 position = Vector2(106, -1.0000038)
 scale = Vector2(5.3599987, 11.080001)
 shape = SubResource("RectangleShape2D_6444e")
+
+[node name="Fog" type="Sprite2D" parent="." unique_id=1729652406]
+material = SubResource("CanvasItemMaterial_7p6j4")
+position = Vector2(563, 434)
