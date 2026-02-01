@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du5ta5mm84gu"]
 
-[ext_resource type="Script" uid="uid://qij4ea5rc37p" path="res://Scripts/Lumen.gd" id="1_y6dao"]
+[ext_resource type="Script" uid="uid://umex08syptxa" path="res://Scripts/lumen.gd" id="1_y6dao"]
 [ext_resource type="Texture2D" uid="uid://cqdeyjlrot3n0" path="res://Textures/Asset_Lumen_wolight.png" id="2_phy0n"]
 [ext_resource type="Texture2D" uid="uid://5bpvg81ifdwp" path="res://Textures/Asset_Lumen_wolight-Sprite.png" id="3_phy0n"]
 [ext_resource type="Texture2D" uid="uid://btgdetvlcwqow" path="res://Textures/Asset_Lumen_hazlight-Sprite.png" id="4_wbut5"]
@@ -139,6 +139,10 @@ scale = Vector2(0.7, 0.7)
 script = ExtResource("1_y6dao")
 speed = 200.0
 pickupRange = 60.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1730123792]
+scale = Vector2(0.99999994, 0.99999994)
+zoom = Vector2(4, 4)
 
 [node name="PlaceholderBlob" type="Sprite2D" parent="." unique_id=1161335678]
 visible = false
