@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://ca5pnuuntlb86" path="res://Object/LockPressurePlate.tscn" id="7_lsmp6"]
 [ext_resource type="Texture2D" uid="uid://cqdeyjlrot3n0" path="res://Textures/Asset_Lumen_wolight.png" id="8_wrinw"]
 [ext_resource type="PackedScene" uid="uid://d1mdyifpjj78m" path="res://Object/FrontDoor.tscn" id="8_xrdnt"]
+[ext_resource type="PackedScene" uid="uid://bvq0fr53i5n1c" path="res://Entity/Mouse.tscn" id="9_6r07y"]
 [ext_resource type="PackedScene" uid="uid://du5ta5mm84gu" path="res://Scenes/lumen.tscn" id="9_af3po"]
 [ext_resource type="Texture2D" uid="uid://b0i4lfjkry3ej" path="res://Textures/Asset_Lumen_hazlight.png" id="10_uy8f0"]
+[ext_resource type="PackedScene" uid="uid://m2be4v6ygfo3" path="res://Entity/Statue.tscn" id="13_6ioyp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6r07y"]
 texture = ExtResource("2_chwpn")
@@ -137,7 +139,11 @@ door = NodePath("../FrontDoor")
 position = Vector2(183.00002, 53)
 scale = Vector2(1.0115556, 0.9886564)
 
-[node name="Lumen" parent="." unique_id=1552569677 instance=ExtResource("9_af3po")]
+[node name="Mouse" parent="." unique_id=1360138408 instance=ExtResource("9_6r07y")]
+position = Vector2(119, 152)
+scale = Vector2(0.6, 0.6)
+
+[node name="Lumen" parent="." unique_id=1552569677 groups=["player"] instance=ExtResource("9_af3po")]
 position = Vector2(215, 217.00003)
 lightOnTexture = ExtResource("10_uy8f0")
 lightOffTexture = ExtResource("8_wrinw")
@@ -145,3 +151,7 @@ lightOffTexture = ExtResource("8_wrinw")
 [node name="Fog" type="Sprite2D" parent="." unique_id=1729652406]
 material = SubResource("CanvasItemMaterial_7p6j4")
 position = Vector2(226, 309)
+
+[node name="Robot" parent="." unique_id=448729144 instance=ExtResource("13_6ioyp")]
+position = Vector2(279, 120)
+scale = Vector2(0.8, 0.8)
