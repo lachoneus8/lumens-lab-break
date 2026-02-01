@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://05njsyw3mr1c"]
 
 [ext_resource type="Script" uid="uid://bxjfb7imr3lbi" path="res://Scripts/Fog.gd" id="1_evl82"]
-[ext_resource type="PackedScene" uid="uid://cx8bnoiscyw32" path="res://Object/level_2_tilemap.tscn" id="2_jli4s"]
+[ext_resource type="PackedScene" uid="uid://v2wbg0mc0gcy" path="res://Object/level_2_tilemap.tscn" id="2_jli4s"]
 [ext_resource type="PackedScene" uid="uid://cdo8i2gwt3um2" path="res://Items/LightSource.tscn" id="3_41rb0"]
 [ext_resource type="Resource" uid="uid://dqcisy8j033rp" path="res://Data/LightSource.tres" id="4_axcq8"]
 [ext_resource type="PackedScene" uid="uid://ca5pnuuntlb86" path="res://Object/LockPressurePlate.tscn" id="5_5e8m4"]
@@ -13,14 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://b0i4lfjkry3ej" path="res://Textures/Asset_Lumen_hazlight.png" id="11_vnr53"]
 [ext_resource type="Texture2D" uid="uid://cqdeyjlrot3n0" path="res://Textures/Asset_Lumen_wolight.png" id="12_phh3d"]
 [ext_resource type="PackedScene" uid="uid://dymn6mnbvvqg6" path="res://Object/Exit.tscn" id="13_2x3m0"]
-[ext_resource type="PackedScene" uid="uid://dh1y8u58ok5ws" path="res://Scenes/PauseMenu.tscn" id="14_tkhhr"]
+[ext_resource type="PackedScene" path="res://Scenes/PauseMenu.tscn" id="14_tkhhr"]
 [ext_resource type="AudioStream" uid="uid://gcmsc10m70kr" path="res://Audio/Music/8bit_town01_dry_moody.ogg" id="15_ckjv0"]
-[ext_resource type="Script" uid="uid://dy3jecu2drl0t" path="res://Scenes/background_music_player.gd" id="16_lxllu"]
+[ext_resource type="Script" path="res://Scenes/background_music_player.gd" id="16_lxllu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7p6j4"]
 blend_mode = 3
 
-[node name="Node2D" type="Node2D" unique_id=193169328]
+[node name="Node2D2" type="Node2D" unique_id=193169328]
 script = ExtResource("1_evl82")
 
 [node name="TileMapLayer" parent="." unique_id=1867493302 instance=ExtResource("2_jli4s")]
@@ -62,6 +62,9 @@ lightOffTexture = ExtResource("12_phh3d")
 
 [node name="Exit" parent="." unique_id=1690382508 instance=ExtResource("13_2x3m0")]
 position = Vector2(305, 345)
+message_text = "More rooms to navigate..."
+button_text = "Level 2"
+destination_scene = "res://Scenes/level_2.tscn"
 
 [node name="PauseMenu" parent="." unique_id=1918532839 instance=ExtResource("14_tkhhr")]
 visible = false

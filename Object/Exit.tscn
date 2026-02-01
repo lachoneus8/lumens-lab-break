@@ -7,6 +7,10 @@ size = Vector2(32, 32)
 
 [node name="Exit" type="Area2D" unique_id=1690382508]
 script = ExtResource("1_exit")
+title_text = "Level Complete!"
+message_text = "You escaped the lab!"
+button_text = "Return to Menu"
+destination_scene = "res://Scenes/MainMenu.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=552277518]
 shape = SubResource("RectangleShape2D_exit")
@@ -31,28 +35,28 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CompletionUI/CenterContainer" unique_id=1287527082]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 32
 
 [node name="Title" type="Label" parent="CompletionUI/CenterContainer/VBoxContainer" unique_id=1269179014]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 64
 text = "Level Complete!"
 horizontal_alignment = 1
 
 [node name="Message" type="Label" parent="CompletionUI/CenterContainer/VBoxContainer" unique_id=359374502]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 32
 text = "You escaped the lab!"
 horizontal_alignment = 1
 
 [node name="ReturnButton" type="Button" parent="CompletionUI/CenterContainer/VBoxContainer" unique_id=784628596]
-custom_minimum_size = Vector2(63, 15)
+custom_minimum_size = Vector2(252, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
 theme_override_colors/font_hover_color = Color(0.7, 0.4, 0.85, 1)
-theme_override_font_sizes/font_size = 9
+theme_override_font_sizes/font_size = 36
 text = "Return to Menu"
 
 [connection signal="pressed" from="CompletionUI/CenterContainer/VBoxContainer/ReturnButton" to="." method="_on_return_to_menu_pressed"]
