@@ -13,6 +13,10 @@ var item_stack: Array[Node2D] = []
 var hasFlashlight: bool = false
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Quit"):
+		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+		return
+	
 	# Get input direction
 	var input_vector = Vector2.ZERO
 	
