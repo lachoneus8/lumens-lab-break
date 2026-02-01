@@ -15,8 +15,7 @@ func _ready():
 	$VBoxContainer/QuitButton.pressed.connect(_on_quit_pressed)
 
 func _on_play_pressed():
-	# Set scale to 4.0 for gameplay
-	get_window().content_scale_factor = 4.0
+	get_window().content_scale_factor = 1.0
 	# Change to the game scene
 	get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
 
