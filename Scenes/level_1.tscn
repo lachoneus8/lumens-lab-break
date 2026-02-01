@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://du5ta5mm84gu" path="res://Scenes/lumen.tscn" id="9_af3po"]
 [ext_resource type="Texture2D" uid="uid://b0i4lfjkry3ej" path="res://Textures/Asset_Lumen_hazlight.png" id="10_uy8f0"]
 [ext_resource type="PackedScene" uid="uid://m2be4v6ygfo3" path="res://Entity/Statue.tscn" id="13_6ioyp"]
+[ext_resource type="AudioStream" uid="uid://gcmsc10m70kr" path="res://Audio/Music/8bit_town01_dry_moody.ogg" id="14_6ioyp"]
+[ext_resource type="Script" uid="uid://dy3jecu2drl0t" path="res://Scenes/background_music_player.gd" id="15_oovug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6r07y"]
 texture = ExtResource("2_chwpn")
@@ -136,8 +138,7 @@ scale = Vector2(0.39999992, 0.35999757)
 door = NodePath("../FrontDoor")
 
 [node name="FrontDoor" parent="." unique_id=1166748687 instance=ExtResource("8_xrdnt")]
-position = Vector2(183.00002, 53)
-scale = Vector2(1.0115556, 0.9886564)
+position = Vector2(183, 53)
 
 [node name="Mouse" parent="." unique_id=1360138408 instance=ExtResource("9_6r07y")]
 position = Vector2(119, 152)
@@ -155,3 +156,10 @@ lightOffTexture = ExtResource("8_wrinw")
 [node name="Fog" type="Sprite2D" parent="." unique_id=1729652406]
 material = SubResource("CanvasItemMaterial_7p6j4")
 position = Vector2(226, 309)
+
+[node name="Background Music Player" type="AudioStreamPlayer" parent="." unique_id=2128876108]
+stream = ExtResource("14_6ioyp")
+volume_db = -25.0
+script = ExtResource("15_oovug")
+
+[connection signal="finished" from="Background Music Player" to="." method="_on_background_music_player_finished"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du5ta5mm84gu"]
 
-[ext_resource type="Script" uid="uid://cpmhbdiv3au3y" path="res://Scripts/Lumen.gd" id="1_y6dao"]
+[ext_resource type="Script" uid="uid://cpmhbdiv3au3y" path="res://Scripts/lumen.gd" id="1_y6dao"]
 [ext_resource type="Texture2D" uid="uid://cqdeyjlrot3n0" path="res://Textures/Asset_Lumen_wolight.png" id="2_phy0n"]
 [ext_resource type="Texture2D" uid="uid://5bpvg81ifdwp" path="res://Textures/Asset_Lumen_wolight-Sprite.png" id="3_phy0n"]
 [ext_resource type="Texture2D" uid="uid://btgdetvlcwqow" path="res://Textures/Asset_Lumen_hazlight-Sprite.png" id="4_wbut5"]
@@ -156,3 +156,6 @@ shape = SubResource("CapsuleShape2D_8yhm2")
 
 [node name="ItemHoldPos" type="Node2D" parent="." unique_id=973063436]
 position = Vector2(12, 17)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1132507820]
+volume_db = -5.0

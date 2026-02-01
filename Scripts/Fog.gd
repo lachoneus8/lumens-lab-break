@@ -71,3 +71,7 @@ func update_fog_image_texture():
 
 func _process(_delta):
 	update_fog()
+
+
+func _on_background_music_player_finished() -> void:
+	pass # Replace with function body.

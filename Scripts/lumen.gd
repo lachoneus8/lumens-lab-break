@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var lightOnTexture: Texture
 @export var lightOffTexture: Texture
 @onready var item_hold_pos = $ItemHoldPos
+@onready var sound_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var pick_up_item_sound = preload("res://Audio/lumen_pick_up_item_filmcow.wav")
+@onready var drop_item_sound = preload("res://Audio/lumen_drop_item_filmcow.wav")
 
 var item_stack: Array[Node2D] = []
 var hasFlashlight: bool = false
@@ -88,6 +91,9 @@ func pickup_item():
 		if nearest_item.name == "LightSource":
 			$PlaceholderBlob.texture = lightOnTexture
 			hasFlashlight = true
+			
+		sound_player.stream = pick_up_item_sound
+		sound_player.play()
 
 func drop_item():
 	if item_stack.size() == 0:
@@ -109,3 +115,6 @@ func drop_item():
 	if item_to_drop.name == "LightSource":
 		$PlaceholderBlob.texture = lightOffTexture
 		hasFlashlight = false
+	
+	sound_player.stream = drop_item_sound
+	sound_player.play()

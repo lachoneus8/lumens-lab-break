@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://m2be4v6ygfo3"]
 
-[ext_resource type="Script" uid="uid://1hwpui0jbrmm" path="res://Scripts/Statue.gd" id="1_i0ixe"]
+[ext_resource type="Script" path="res://Scripts/Statue.gd" id="1_i0ixe"]
 [ext_resource type="Texture2D" uid="uid://dk6xbljwtsujn" path="res://Textures/Asset_Lumen_Statue-Sprite.png" id="2_0ngyq"]
 [ext_resource type="Texture2D" uid="uid://bxiawr4np0mvv" path="res://Textures/Asset_Statue_Chilling.png" id="3_xhpqm"]
 
@@ -85,3 +85,5 @@ frame_progress = 0.8693634
 
 [node name="StationarySprite2D" type="Sprite2D" parent="." unique_id=457794377]
 texture = ExtResource("3_xhpqm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1233462497]

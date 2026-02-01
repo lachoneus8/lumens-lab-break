@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var stationary_sprite: Sprite2D = $StationarySprite2D
+@onready var sound_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var move_direction: Vector2 = Vector2.ZERO
 var time_until_direction_change: float = 0.0
@@ -15,6 +16,7 @@ var is_near_light: bool = false
 func _ready():
 	randomize()
 	change_direction()
+	update_sound_player_stream()
 
 func _physics_process(delta: float) -> void:
 	update_nearest_light_distance()
@@ -34,11 +36,18 @@ func update_nearest_light_distance():
 			if distance < nearest_distance:
 				nearest_distance = distance
 	
+	var previous_is_near_light = is_near_light
 	is_near_light = nearest_distance <= light_range
+	if is_near_light and is_near_light != previous_is_near_light:
+		sound_player.play()
 
 func should_move() -> bool:
 	# Override in derived classes
 	return false
+
+func update_sound_player_stream():
+	# Override in derived classes
+	pass
 
 func handle_movement(delta: float):
 	time_until_direction_change -= delta
