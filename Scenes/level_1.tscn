@@ -143,6 +143,10 @@ scale = Vector2(1.0115556, 0.9886564)
 position = Vector2(119, 152)
 scale = Vector2(0.6, 0.6)
 
+[node name="Statue" parent="." unique_id=448729144 instance=ExtResource("13_6ioyp")]
+position = Vector2(279, 120)
+scale = Vector2(0.8, 0.8)
+
 [node name="Lumen" parent="." unique_id=1552569677 groups=["player"] instance=ExtResource("9_af3po")]
 position = Vector2(215, 217.00003)
 lightOnTexture = ExtResource("10_uy8f0")
@@ -151,7 +155,3 @@ lightOffTexture = ExtResource("8_wrinw")
 [node name="Fog" type="Sprite2D" parent="." unique_id=1729652406]
 material = SubResource("CanvasItemMaterial_7p6j4")
 position = Vector2(226, 309)
-
-[node name="Robot" parent="." unique_id=448729144 instance=ExtResource("13_6ioyp")]
-position = Vector2(279, 120)
-scale = Vector2(0.8, 0.8)
