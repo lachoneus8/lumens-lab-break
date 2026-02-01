@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpxsnslve518g"
+path="res://.godot/imported/Bits - Ambience_turtlebox_f1k.mp3-3a09c6b6a170f40bdd4bb489eb793ec0.mp3str"
+
+[deps]
+
+source_file="res://Audio/Ambience/Bits - Ambience_turtlebox_f1k.mp3"
+dest_files=["res://.godot/imported/Bits - Ambience_turtlebox_f1k.mp3-3a09c6b6a170f40bdd4bb489eb793ec0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
