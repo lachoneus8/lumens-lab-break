@@ -11,14 +11,16 @@ func _ready() -> void:
 	sound_player.stream = door_open_close_sound
 
 func open():
-	$StaticBody2D/CollisionShape2D.disabled = true
+	$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
 	$Sprite2D.texture = textureOpen
-
+	
+	print("Door open")
 	
 	sound_player.play()
 	
 func close():
-	$StaticBody2D/CollisionShape2D.disabled = false
+	$StaticBody2D/CollisionShape2D.set_deferred("disabled", false)
 	$Sprite2D.texture = textureClosed
 
+	print("Door closed")
 	sound_player.play()

@@ -8,13 +8,22 @@ extends CharacterBody2D
 @onready var sound_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var pick_up_item_sound = preload("res://Audio/lumen_pick_up_item_filmcow.wav")
 @onready var drop_item_sound = preload("res://Audio/lumen_drop_item_filmcow.wav")
+@onready var pause_menu: CanvasLayer = null
 
 var item_stack: Array[Node2D] = []
 var hasFlashlight: bool = false
 
+func _ready():
+	# Find the pause menu in the scene
+	pause_menu = get_node_or_null("/root/Level1/PauseMenu")
+	if not pause_menu:
+		# If not found, try to find it as a child
+		pause_menu = get_tree().root.find_child("PauseMenu", true, false)
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Quit"):
-		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+		if pause_menu:
+			pause_menu.show_menu()
 		return
 	
 	# Get input direction
@@ -33,10 +42,17 @@ func _physics_process(delta: float) -> void:
 	input_vector = input_vector.normalized()
 	
 	# Set velocity
-	velocity = input_vector * speed * delta
+	velocity = input_vector * speed
 	
 	# Move the character
 	move_and_slide()
+	
+	# Push rigid bodies
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider() is RigidBody2D:
+			var body = collision.get_collider() as RigidBody2D
+			body.apply_central_impulse(-collision.get_normal() * 100)
 	
 	if velocity.length() > 0.0:
 		$AnimatedSprite2D.visible = true

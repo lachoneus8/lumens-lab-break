@@ -280,6 +280,14 @@ theme_override_colors/font_hover_color = Color(0.7, 0.4, 0.85, 1)
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=795814429]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_colors/font_hover_color = Color(0.7, 0.4, 0.85, 1)
+theme_override_font_sizes/font_size = 32
+text = "Quit Game"
+
 [node name="MouseSprite" type="AnimatedSprite2D" parent="." unique_id=329975046]
 position = Vector2(114, 614)
 scale = Vector2(4, 4)

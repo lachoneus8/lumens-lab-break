@@ -21,7 +21,7 @@ func _ready():
 	# Initialize viewport dimensions
 	display_size = get_viewport_rect().size
 	display_width = display_size.x
-	display_height = display_size.y
+	display_height = display_size.y + 50
 
 	fog_image_width = display_width / GRID_SIZE
 	fog_image_height = display_height / GRID_SIZE
@@ -31,7 +31,7 @@ func _ready():
 	lightImage.convert(Image.FORMAT_RGBAH)
 	
 	# Reduce alpha of light image
-	adjust_image_alpha(lightImage, 0.5) # 0.5 = 50% opacity, adjust as needed
+	# adjust_image_alpha(lightImage, 0.5) # 0.5 = 50% opacity, adjust as needed
 	
 	fog.scale *= GRID_SIZE
 	

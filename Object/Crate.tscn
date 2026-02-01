@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dqr6k5hbhuokr"]
+
+[ext_resource type="Texture2D" uid="uid://dyfr5eywmm7wc" path="res://Textures/Asset_PushCrate_Purple_On.png" id="1_j7n0y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18kwm"]
+size = Vector2(21, 20)
+
+[node name="Crate" type="RigidBody2D" unique_id=1795167442]
+gravity_scale = 0.0
+linear_damp_mode = 1
+linear_damp = 8.0
+angular_damp_mode = 1
+angular_damp = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=721119902]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_j7n0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844833156]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_18kwm")

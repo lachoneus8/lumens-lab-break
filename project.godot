@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lumens Lab Break"
-run/main_scene="uid://cx8bnoiscyw32"
+run/main_scene="uid://ci1ywe7pms7go"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.14901961, 0.12156863, 0.2, 1)
 config/icon="uid://cqdeyjlrot3n0"

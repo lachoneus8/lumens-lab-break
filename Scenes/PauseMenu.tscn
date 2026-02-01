@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://pause_menu_ui"]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_pause"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_pause")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 16
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(63, 15)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_colors/font_hover_color = Color(0.7, 0.4, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(63, 15)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_colors/font_hover_color = Color(0.7, 0.4, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "Restart Level"
+
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(63, 15)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_colors/font_hover_color = Color(0.7, 0.4, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(63, 15)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.3, 1)
+theme_override_colors/font_hover_color = Color(0.7, 0.4, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "Quit Game"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

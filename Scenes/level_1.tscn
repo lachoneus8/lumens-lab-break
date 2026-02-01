@@ -12,9 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://bvq0fr53i5n1c" path="res://Entity/Mouse.tscn" id="9_6r07y"]
 [ext_resource type="PackedScene" uid="uid://du5ta5mm84gu" path="res://Scenes/lumen.tscn" id="9_af3po"]
 [ext_resource type="Texture2D" uid="uid://b0i4lfjkry3ej" path="res://Textures/Asset_Lumen_hazlight.png" id="10_uy8f0"]
+[ext_resource type="PackedScene" uid="uid://dqr6k5hbhuokr" path="res://Object/Crate.tscn" id="11_8i23i"]
 [ext_resource type="PackedScene" uid="uid://m2be4v6ygfo3" path="res://Entity/Statue.tscn" id="13_6ioyp"]
 [ext_resource type="AudioStream" uid="uid://gcmsc10m70kr" path="res://Audio/Music/8bit_town01_dry_moody.ogg" id="14_6ioyp"]
-[ext_resource type="Script" uid="uid://dy3jecu2drl0t" path="res://Scenes/background_music_player.gd" id="15_oovug"]
+[ext_resource type="PackedScene" uid="uid://dymn6mnbvvqg6" path="res://Object/Exit.tscn" id="15_8yhm2"]
+[ext_resource type="Script" path="res://Scenes/background_music_player.gd" id="15_oovug"]
+[ext_resource type="PackedScene" path="res://Scenes/PauseMenu.tscn" id="16_pjppf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6r07y"]
 texture = ExtResource("2_chwpn")
@@ -50,7 +53,7 @@ script = ExtResource("4_7p6j4")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1729331555]
 position = Vector2(-337, -125)
-tile_map_data = PackedByteArray("AAAaABcAAAAAAAAAAAAcABcAAAAAAAAAAAAaABUAAAAAAAAAAAAcABUAAAAAAAAAAAAcABMAAAAAAAAAAAAaABMAAAAAAAAAAAAcABEAAAAAAAAAAAAaABEAAAAAAAAAAAAaAA8AAAAAAAAAAAAcAA8AAAAAAAAAAAAcAA0AAAAAAAAAAAAaAA0AAAAAAAAAAAAYABMAAAAAAAAAAAAeAA0AAAAAAAAAAAAgAA0AAAAAAAAAAAAgAA8AAAAAAAAAAAAgABEAAAAAAAAAAAAgABMAAAAAAAAAAAAgABUAAAAAAAAAAAAgABcAAAAAAAAAAAAgABkAAAAAAAAAAAAgABsAAAAAAAAAAAAiABcAAAAAAAAAAAAiABUAAAAAAAAAAAAiABMAAAAAAAAAAAAiABEAAAAAAAAAAAAiAA8AAAAAAAAAAAAiAA0AAAAAAAAAAAAkAA0AAAAAAAAAAAAkAA8AAAAAAAAAAAAmAA8AAAAAAAAAAAAmAA0AAAAAAAAAAAAmABEAAAAAAAAAAAAkABEAAAAAAAAAAAAkABMAAAAAAAAAAAAmABMAAAAAAAAAAAAoABMAAAAAAAAAAAAmABUAAAAAAAAAAAAkABUAAAAAAAAAAAAkABcAAAAAAAAAAAAmABcAAAAAAAAAAAAgAAsAAAAAAAAAAAAgAAkAAAAAAAAAAAAYABEAAQAAAAEAAAAaAAsAAQAAAAEAAAAcAAsAAQAAAAEAAAAeAAsAAQAAAAEAAAAiAAsAAQAAAAEAAAAkAAsAAQAAAAEAAAAmAAsAAQAAAAEAAAAoABEAAQAAAAEAAAAoABsAAQAAAAEAAAAmABsAAQAAAAEAAAAkABsAAQAAAAEAAAAiABsAAQAAAAEAAAAeABsAAQAAAAEAAAAcABsAAQAAAAEAAAAaABsAAQAAAAEAAAAYABsAAQAAAAEAAAAYABkAAQAAAAAAAAAaABkAAQAAAAAAAAAcABkAAQAAAAAAAAAeABkAAQAAAAAAAAAiABkAAQAAAAAAAAAkABkAAQAAAAAAAAAmABkAAQAAAAAAAAAoABkAAQAAAAAAAAAYABcAAQAAAAAAAAAYABUAAQAAAAAAAAAoABUAAQAAAAAAAAAoABcAAQAAAAAAAAAoAA8AAQAAAAAAAAAoAA0AAQAAAAAAAAAYAA8AAQAAAAAAAAAYAA0AAQAAAAAAAAAYAAsAAQAAAAAAAAAoAAsAAQAAAAAAAAAaAAoAAQAAAAAAAAAcAAkAAQAAAAAAAAAeAAkAAQAAAAAAAAAaAAkAAQAAAAAAAAAiAAkAAQAAAAAAAAAkAAkAAQAAAAAAAAAmAAkAAQAAAAAAAAAoAAkAAQAAAAAAAAAYAAkAAQAAAAAAAAAeAA8AAAAAAAAAAAAeABEAAAAAAAAAAAAeABMAAAAAAAAAAAAeABUAAAAAAAAAAAAeABcAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAaABcAAAAAAAAAAAAcABcAAAAAAAAAAAAaABUAAAAAAAAAAAAcABUAAAAAAAAAAAAcABMAAAAAAAAAAAAaABMAAAAAAAAAAAAcABEAAAAAAAAAAAAaABEAAAAAAAAAAAAaAA8AAAAAAAAAAAAcAA8AAAAAAAAAAAAcAA0AAAAAAAAAAAAaAA0AAAAAAAAAAAAYABMAAQAAAAAAAAAeAA0AAAAAAAAAAAAgAA0AAAAAAAAAAAAgAA8AAAAAAAAAAAAgABEAAAAAAAAAAAAgABMAAAAAAAAAAAAgABUAAAAAAAAAAAAgABcAAAAAAAAAAAAgABkAAQAAAAAAAAAgABsAAQAAAAEAAAAiABcAAAAAAAAAAAAiABUAAAAAAAAAAAAiABMAAAAAAAAAAAAiABEAAAAAAAAAAAAiAA8AAAAAAAAAAAAiAA0AAAAAAAAAAAAkAA0AAAAAAAAAAAAkAA8AAAAAAAAAAAAmAA8AAAAAAAAAAAAmAA0AAAAAAAAAAAAmABEAAAAAAAAAAAAkABEAAAAAAAAAAAAkABMAAAAAAAAAAAAmABMAAAAAAAAAAAAoABMAAQAAAAAAAAAmABUAAAAAAAAAAAAkABUAAAAAAAAAAAAkABcAAAAAAAAAAAAmABcAAAAAAAAAAAAgAAsAAAAAAAAAAAAgAAkAAAAAAAAAAAAYABEAAQAAAAAAAAAaAAsAAQAAAAEAAAAcAAsAAQAAAAEAAAAeAAsAAQAAAAEAAAAiAAsAAQAAAAEAAAAkAAsAAQAAAAEAAAAmAAsAAQAAAAEAAAAoABEAAQAAAAAAAAAoABsAAQAAAAEAAAAmABsAAQAAAAEAAAAkABsAAQAAAAEAAAAiABsAAQAAAAEAAAAeABsAAQAAAAEAAAAcABsAAQAAAAEAAAAaABsAAQAAAAEAAAAYABsAAQAAAAEAAAAYABkAAQAAAAAAAAAaABkAAQAAAAAAAAAcABkAAQAAAAAAAAAeABkAAQAAAAAAAAAiABkAAQAAAAAAAAAkABkAAQAAAAAAAAAmABkAAQAAAAAAAAAoABkAAQAAAAAAAAAYABcAAQAAAAAAAAAYABUAAQAAAAAAAAAoABUAAQAAAAAAAAAoABcAAQAAAAAAAAAoAA8AAQAAAAAAAAAoAA0AAQAAAAAAAAAYAA8AAQAAAAAAAAAYAA0AAQAAAAAAAAAYAAsAAQAAAAAAAAAoAAsAAQAAAAAAAAAaAAoAAQAAAAAAAAAcAAkAAQAAAAAAAAAeAAkAAQAAAAAAAAAaAAkAAQAAAAAAAAAiAAkAAQAAAAAAAAAkAAkAAQAAAAAAAAAmAAkAAQAAAAAAAAAoAAkAAQAAAAAAAAAYAAkAAQAAAAAAAAAeAA8AAAAAAAAAAAAeABEAAAAAAAAAAAAeABMAAAAAAAAAAAAeABUAAAAAAAAAAAAeABcAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_8i23i")
 rendering_quadrant_size = 32
 
@@ -61,7 +64,7 @@ itemData = ExtResource("4_lsmp6")
 [node name="Environment" type="Node" parent="." unique_id=148573709]
 
 [node name="Wall1" type="StaticBody2D" parent="Environment" unique_id=1071876822]
-position = Vector2(101.00003, 46.000015)
+position = Vector2(98, 44)
 scale = Vector2(0.42, 0.546)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Wall1" unique_id=1694194861]
@@ -70,7 +73,7 @@ scale = Vector2(15.4400015, 5.3200006)
 shape = SubResource("RectangleShape2D_6444e")
 
 [node name="Wall2" type="StaticBody2D" parent="Environment" unique_id=1163420452]
-position = Vector2(263, 44)
+position = Vector2(269, 43)
 scale = Vector2(0.44, 0.5999988)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Wall2" unique_id=512678143]
@@ -88,8 +91,8 @@ scale = Vector2(36.991024, 5.2704663)
 shape = SubResource("RectangleShape2D_6444e")
 
 [node name="Wall8" type="StaticBody2D" parent="Environment" unique_id=998782637]
-position = Vector2(226, 299.99997)
-scale = Vector2(0.17, 0.595)
+position = Vector2(202, 299)
+scale = Vector2(0.21000001, 0.595)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Wall8" unique_id=1134432950]
 position = Vector2(212, -2.0000038)
@@ -97,8 +100,8 @@ scale = Vector2(36.991024, 5.2704663)
 shape = SubResource("RectangleShape2D_6444e")
 
 [node name="Wall4" type="StaticBody2D" parent="Environment" unique_id=2122643153]
-position = Vector2(281.00003, 245.00002)
-scale = Vector2(0.27999997, 0.39999998)
+position = Vector2(281.00003, 224.00002)
+scale = Vector2(0.27999997, 0.52)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Wall4" unique_id=397534432]
 position = Vector2(106, -1.0000038)
@@ -106,8 +109,8 @@ scale = Vector2(5.3599987, 11.080001)
 shape = SubResource("RectangleShape2D_6444e")
 
 [node name="Wall5" type="StaticBody2D" parent="Environment" unique_id=1695785105]
-position = Vector2(20.99997, 247.00002)
-scale = Vector2(0.3199988, 0.39999998)
+position = Vector2(21.999998, 222)
+scale = Vector2(0.3199988, 0.47999755)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Wall5" unique_id=990055446]
 position = Vector2(106, -1.0000038)
@@ -148,10 +151,24 @@ scale = Vector2(0.6, 0.6)
 position = Vector2(279, 120)
 scale = Vector2(0.8, 0.8)
 
+[node name="Crate" parent="." unique_id=2073333779 instance=ExtResource("11_8i23i")]
+position = Vector2(151, 151)
+mass = 60.0
+linear_damp_mode = 0
+linear_damp = 0.0
+angular_damp_mode = 0
+angular_damp = 0.0
+
 [node name="Lumen" parent="." unique_id=1552569677 groups=["player"] instance=ExtResource("9_af3po")]
 position = Vector2(215, 217.00003)
 lightOnTexture = ExtResource("10_uy8f0")
 lightOffTexture = ExtResource("8_wrinw")
+
+[node name="Exit" parent="." unique_id=1690382508 instance=ExtResource("15_8yhm2")]
+position = Vector2(181, 26)
+
+[node name="PauseMenu" parent="." unique_id=1918532839 instance=ExtResource("16_pjppf")]
+visible = false
 
 [node name="Fog" type="Sprite2D" parent="." unique_id=1729652406]
 material = SubResource("CanvasItemMaterial_7p6j4")
