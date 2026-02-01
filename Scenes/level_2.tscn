@@ -1,0 +1,57 @@
+[gd_scene format=4 uid="uid://cx8bnoiscyw32"]
+
+[ext_resource type="Texture2D" uid="uid://bmfrfltebb52k" path="res://Textures/Asset_Floortile_Basic.png" id="1_v36qu"]
+[ext_resource type="Texture2D" uid="uid://cgkd3m6b8sh65" path="res://Textures/Asset_Wall_Frontfacing.png" id="2_cggpd"]
+[ext_resource type="Texture2D" uid="uid://cnilaslm7k5oh" path="res://Textures/Asset_Wall_Sidefacing_Wallcap.png" id="3_055b2"]
+[ext_resource type="Texture2D" uid="uid://ygp8lygv6cb6" path="res://Textures/Asset_FrontFacingBiometric.png" id="4_2mgoq"]
+[ext_resource type="PackedScene" uid="uid://du5ta5mm84gu" path="res://Scenes/lumen.tscn" id="5_cggpd"]
+[ext_resource type="Texture2D" uid="uid://qo6cs25fjmb0" path="res://Textures/Asset_Labroom_7x7.png" id="5_uhnj4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_42uki"]
+texture = ExtResource("1_v36qu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/y_sort_origin = -1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7v2y"]
+texture = ExtResource("2_cggpd")
+texture_region_size = Vector2i(32, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 32, -16, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ait6c"]
+texture = ExtResource("3_055b2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/y_sort_origin = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vcilj"]
+texture = ExtResource("4_2mgoq")
+texture_region_size = Vector2i(32, 48)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, 16, -8, 16, 24, -16, 24)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, 16, -8, 16, 24, -16, 24)
+
+[sub_resource type="TileSet" id="TileSet_bl0du"]
+tile_size = Vector2i(32, 16)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_42uki")
+sources/4 = SubResource("TileSetAtlasSource_t7v2y")
+sources/5 = SubResource("TileSetAtlasSource_ait6c")
+sources/6 = SubResource("TileSetAtlasSource_vcilj")
+tile_proxies/coords_level = [[2, Vector2i(0, 0)], [6, Vector2i(0, 0)], [3, Vector2i(0, 0)], [6, Vector2i(1, 0)]]
+
+[node name="Tile" type="TileMapLayer" unique_id=1867493302]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD8//7/BAAAAAAAAAAEAP7/BAAAAAAAAAD8//j/BAAAAAAAAAD8//r/BAAAAAAAAAD8//z/BAAAAAAAAAAEAPj/BAAAAAAAAAAEAPr/BAAAAAAAAAAEAPv/BAAAAAAAAAAEAPz/BAAAAAAAAAD9//j/BAAAAAAAAAD+//j/BAAAAAAAAAD///j/BAAAAAAAAAABAPj/BAAAAAAAAAACAPj/BAAAAAAAAAADAPj/BAAAAAAAAAD8/wQABAAAAAAAAAD8/wUABAAAAAAAAAD8/wYABAAAAAAAAAD8/wcABQAAAAAAAAD8/wgABAAAAAAAAAD9/wgABAAAAAAAAAD+/wgABAAAAAAAAAD//wgABAAAAAAAAAABAAgABAAAAAAAAAACAAgABAAAAAAAAAADAAgABAAAAAAAAAAEAAQABAAAAAAAAAAEAAUABAAAAAAAAAAEAAYABAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgABAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAAAAAAAAAD///v/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAADAP3/AAAAAAAAAAACAP3/AAAAAAAAAAABAP3/AAAAAAAAAAAAAP3/AAAAAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD9//3/AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////BQAAAAAAAAAAAP//BQAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEABQAAAAAAAAAAAAEABQAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAPn/AAAAAAAAAAAAAPf/AAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAD9/wcABQAAAAAAAAD+/wcABQAAAAAAAAD//wcABQAAAAAAAAADAAcAAAAAAAAAAAD5/wEAAAAAAAAAAAD5/wIABQAAAAAAAAD6/wIAAAAAAAAAAAD6/wMABQAAAAAAAAD6/wQABQAAAAAAAAD5/wQABQAAAAAAAAD4/wIAAAAAAAAAAAD6/wAAAAAAAAAAAAD5/wAABQAAAAAAAAD6//7/BQAAAAAAAAD6////BQAAAAAAAAD7/wIABQAAAAAAAAD6/wUABQAAAAAAAAD5/wUABQAAAAAAAAA=")
+tile_set = SubResource("TileSet_bl0du")
+
+[node name="Lumen" parent="." unique_id=1552569677 instance=ExtResource("5_cggpd")]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1833432646]
+visible = false
+modulate = Color(1, 0.54509807, 1, 0.21960784)
+position = Vector2(16, 8)
+texture = ExtResource("5_uhnj4")
